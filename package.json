@@ -1,0 +1,21 @@
+{
+  "name": "study",
+  "version": "0.0.1",
+  "description": "study for koa based application",
+  "scripts": {
+    "start": "coffee app.coffee"
+  },
+  "dependencies": {
+    "co-views": "^2.1.0",
+    "jade": "^1.11.0",
+    "koa": "^1.1.2",
+    "koa-morgan": "^0.4.0",
+    "koa-route": "^2.4.2",
+    "koa-session": "^3.3.1",
+    "lodash": "^4.1.0"
+  },
+  "engines": {
+    "node": "~0.5.4"
+  },
+  "license": "MIT"
+}
