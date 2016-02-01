@@ -1,6 +1,10 @@
 'use strict'
 
-configDir = "#{__dirname}/config"
+_ = require 'lodash'
 
+configDir = "#{__dirname}/config"
+defaults = require "#{configDir}/settings"
+settings = _.merge defaults, require "#{configDir}/settings/#{defaults.env}"
+
+module.exports.settings = settings
 module.exports.routes   = require "#{configDir}/routes"
-module.exports.settings = require "#{configDir}/settings"

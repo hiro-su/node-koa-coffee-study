@@ -21,10 +21,11 @@ memcached = new Memcached settings.memcached
 ###
 # logger
 ###
-accessLogStream = if settings.debug
-  process.stdout
-else
-  fs.createWriteStream "#{__dirname}/log/access.log", flags: 'a'
+accessLogStream =
+  if settings.env == "development"
+    process.stdout
+  else
+    fs.createWriteStream "#{__dirname}/log/access.log", flags: 'a'
 
 app.use logger 'dev' , stream: accessLogStream
 
