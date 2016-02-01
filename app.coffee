@@ -6,6 +6,7 @@
 koa       = require 'koa'
 morgan    = require 'koa-morgan'
 session   = require 'koa-session'
+serve     = require 'koa-static'
 Memcached = require 'memcached'
 fs        = require 'fs'
 {settings, routes} = require "#{__dirname}/config"
@@ -53,6 +54,11 @@ app.on 'error', (err) ->
 # router
 ###
 routes app
+
+###
+# serve static file
+###
+app.use serve "#{__dirname}/public"
 
 unless module.parent
   server  = app.listen settings.port

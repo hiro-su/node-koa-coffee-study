@@ -2,7 +2,7 @@
 
 views = require 'co-views'
 
-module.exports = (->
+module.exports = (template) ->
   viewsDir = "#{__dirname}/../views"
-  views viewsDir, ext: 'jade'
-)()
+  render = views viewsDir, ext: 'jade'
+  render "layouts/application", { body: yield render template }

@@ -1,0 +1,29 @@
+{
+  "name": "study",
+  "description": "study for koa based application",
+  "main": "",
+  "authors": [
+    "hiro-su <h.sugipon@gmail.com>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/hiro-su/node-koa-coffee-study",
+  "moduleType": [],
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular": "^1.4.9",
+    "angular-route": "^1.4.9",
+    "angular-resource": "^1.4.9",
+    "angular-animate": "^1.4.9",
+    "angular-mocks": "^1.4.9",
+    "angular-material": "^1.0.4",
+    "angular-xeditable": "0.1.8",
+    "lodash": "^4.1.0"
+  }
+}

@@ -7,6 +7,7 @@ class HomeCtrl
     @app = app
 
   index: (next) ->
+    #@body = yield render "layouts/application", { body: yield render "home/index" }
     @body = yield render "home/index"
 
 module.exports = HomeCtrl
