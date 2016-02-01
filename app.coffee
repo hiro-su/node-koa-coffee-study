@@ -9,7 +9,8 @@ session   = require 'koa-session'
 serve     = require 'koa-static'
 Memcached = require 'memcached'
 fs        = require 'fs'
-{settings, routes} = require "#{__dirname}/config"
+path      = require 'path'
+{settings, routes} = require path.join __dirname, 'config'
 
 ###
 # Prepare
@@ -59,7 +60,7 @@ routes app
 ###
 # serve static file
 ###
-app.use serve "#{__dirname}/public"
+app.use serve path.join __dirname, 'public'
 
 unless module.parent
   server  = app.listen settings.port
