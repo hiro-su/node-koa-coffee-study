@@ -3,8 +3,8 @@
 route = require 'koa-route'
 
 rootDir = "#{__dirname}/.."
-Home = require "#{rootDir}/controllers/homeCtrl"
-task = require "#{rootDir}/controllers/taskCtrl"
+Home = require "#{rootDir}/app/controllers/homeCtrl"
+task = require "#{rootDir}/app/controllers/taskCtrl"
 
 module.exports = (app) ->
   home = new Home(app)

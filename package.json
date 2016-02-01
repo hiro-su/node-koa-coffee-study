@@ -2,6 +2,7 @@
   "name": "study",
   "version": "0.0.1",
   "description": "study for koa based application",
+  "repository": "https://github.com/hiro-su/node-koa-coffee-study",
   "scripts": {
     "start": "coffee app.coffee"
   },
@@ -12,7 +13,8 @@
     "koa-morgan": "^0.4.0",
     "koa-route": "^2.4.2",
     "koa-session": "^3.3.1",
-    "lodash": "^4.1.0"
+    "lodash": "^4.1.0",
+    "memcached": "^2.2.1"
   },
   "engines": {
     "node": "~0.5.4"
