@@ -4,7 +4,8 @@
   "description": "study for koa based application",
   "repository": "https://github.com/hiro-su/node-koa-coffee-study",
   "scripts": {
-    "build": "$(npm bin)/browserify -t coffeeify app/assets/javascripts/main.coffee > public/assets/app.js",
+    "build": "cat $(cake build_target) | coffee --compile --stdio > public/assets/build.js",
+    "minify": "$(npm bin)/uglifyjs -c -o app.min.js --source-map app.js.map app.js",
     "start": "$(npm bin)/webpack && coffee app.coffee"
   },
   "dependencies": {
@@ -29,6 +30,7 @@
     "angular-mocks": "^1.4.9",
     "coffee-loader": "^0.7.2",
     "coffee-script": "^1.10.0",
+    "uglify-js": "^2.6.1",
     "webpack": "^1.12.12"
   },
   "engines": {

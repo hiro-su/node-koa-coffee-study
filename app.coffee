@@ -62,6 +62,14 @@ routes app
 ###
 app.use serve path.join __dirname, 'public'
 
+###
+# catch 404 and forward to error handler
+###
+app.use (next) ->
+  yield next
+  @status = 404
+  @body = "Not Found!"
+
 unless module.parent
   server  = app.listen settings.port
   address = server.address()
