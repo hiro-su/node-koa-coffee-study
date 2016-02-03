@@ -1,6 +1,6 @@
-glob = require 'glob'
 path = require 'path'
 _    = require 'lodash'
+webpack = require 'webpack'
 
 module.exports = {
   entry: {
@@ -10,7 +10,7 @@ module.exports = {
     ]
   }
   output: {
-    filename: "public/assets/app.js"
+    filename: "public/assets/app.[hash].js"
   }
   # source-mapを出力
   devtool: "#source-map",
@@ -23,4 +23,7 @@ module.exports = {
     # requireやimport時の拡張子を省略
     extensions: ['', '.js', '.coffee']
   }
+  plugins: [
+    new webpack.optimize.UglifyJsPlugin() # minify
+  ]
 }
