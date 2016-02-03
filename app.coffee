@@ -6,9 +6,11 @@
 koa       = require 'koa'
 morgan    = require 'koa-morgan'
 session   = require 'koa-session'
+serve     = require 'koa-static'
 Memcached = require 'memcached'
 fs        = require 'fs'
-{settings, routes} = require "#{__dirname}/config"
+path      = require 'path'
+{settings, routes} = require path.join __dirname, 'config'
 
 ###
 # Prepare
@@ -20,10 +22,11 @@ memcached = new Memcached settings.memcached
 ###
 # logger
 ###
-accessLogStream = if settings.debug
-  process.stdout
-else
-  fs.createWriteStream "#{__dirname}/log/access.log", flags: 'a'
+accessLogStream =
+  if settings.env == "development"
+    process.stdout
+  else
+    fs.createWriteStream "#{__dirname}/log/access.log", flags: 'a'
 
 app.use logger 'dev' , stream: accessLogStream
 
@@ -53,6 +56,19 @@ app.on 'error', (err) ->
 # router
 ###
 routes app
+
+###
+# serve static file
+###
+app.use serve path.join __dirname, 'public'
+
+###
+# catch 404 and forward to error handler
+###
+app.use (next) ->
+  yield next
+  @status = 404
+  @body = "Not Found!"
 
 unless module.parent
   server  = app.listen settings.port

@@ -4,17 +4,33 @@
   "description": "study for koa based application",
   "repository": "https://github.com/hiro-su/node-koa-coffee-study",
   "scripts": {
+    "prestart": "cake build && $(npm bin)/webpack",
     "start": "coffee app.coffee"
   },
   "dependencies": {
+    "angular": "^1.4.9",
+    "angular-animate": "^1.4.9",
+    "angular-aria": "^1.4.9",
+    "angular-material": "^1.0.4",
+    "angular-resource": "^1.4.9",
+    "angular-route": "^1.4.9",
     "co-views": "^2.1.0",
     "jade": "^1.11.0",
     "koa": "^1.1.2",
+    "koa-connect": "^1.0.0",
     "koa-morgan": "^0.4.0",
     "koa-route": "^2.4.2",
     "koa-session": "^3.3.1",
+    "koa-static": "^2.0.0",
     "lodash": "^4.1.0",
     "memcached": "^2.2.1"
+  },
+  "devDependencies": {
+    "angular-mocks": "^1.4.9",
+    "coffee-loader": "^0.7.2",
+    "coffee-script": "^1.10.0",
+    "uglify-js": "^2.6.1",
+    "webpack": "^1.12.12"
   },
   "engines": {
     "node": "~0.5.4"

@@ -1,3 +1,12 @@
-html
-  body
-    h1 hogehoge!!
+div
+  label Name:
+  input(type="text" ng-model="yourName")
+  hr
+  h1
+    | Hello
+    | {{ yourName }}
+
+div(ng-controller="TodoListController as todoList")
+  h1 todos
+  h2
+    | {{ todoList.todos() }}
