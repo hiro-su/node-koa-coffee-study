@@ -7,7 +7,8 @@
     "build": "find app/assets/javascripts/controllers/ -name '*.coffee' -exec cat {} + | coffee --compile --stdio > public/assets/build.js",
     "build1": "find app/assets/javascripts/controllers/ -name '*.coffee' -exec cat {} + | coffee --compile --stdio > public/assets/build.js",
     "minify": "$(npm bin)/uglifyjs -c -o app.min.js --source-map app.js.map app.js",
-    "start": "$(npm bin)/webpack && coffee app.coffee"
+    "start": "$(npm bin)/webpack && coffee app.coffee",
+    "start2": "coffee app.coffee"
   },
   "dependencies": {
     "angular": "^1.4.9",

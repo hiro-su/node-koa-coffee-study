@@ -4,11 +4,15 @@ _    = require 'lodash'
 
 console.log _.uniq [
   path.join __dirname, "app/assets/javascripts/main.coffee"
+  path.join __dirname, "tmp/assets/build.coffee"
 ].concat(glob.sync(path.join(__dirname, "app/assets/javascripts/**/*.coffee")))
 
 module.exports = {
   entry: {
-    app: [ path.join __dirname, "app/assets/javascripts/main.coffee" ]
+    app: [
+      path.join __dirname, "app/assets/javascripts/main.coffee"
+      path.join __dirname, "public"
+    ]
     #glob.sync(path.join(__dirname, "app/assets/javascripts/**/*.coffee"))
   }
   output: {
