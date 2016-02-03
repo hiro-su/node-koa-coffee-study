@@ -10,8 +10,7 @@ task 'build_target', 'show build target', ->
 task 'prebuild', 'prebuild', ->
   fs.writeFileSync path.join(__dirname, 'tmp', 'assets', 'build.coffee'), target('-exec cat {} +')
   spawn.execSync "$(npm bin)/webpack"
-  #spawn.execSync "$(npm bin)/uglifyjs -c -o public/assets/app.min.js --source-map public/assets/app.js.map public/assets/app.js"
-  spawn.execSync "coffee app.coffee"
+  #spawn.execSync "$(npm bin)/uglifyjs -c -o #{assets('app.min.js')} --source-map #{assets('app.js.map')} #{assets('app.js')}"
 
 task 'build', 'build', ->
   result = spawn.execSync "coffee --compile --stdio", input: target('-exec cat {} +')
@@ -19,3 +18,8 @@ task 'build', 'build', ->
 
 target = (exec='') ->
   spawn.execSync "find app/assets/javascripts/controllers -name '*.coffee' #{exec}" 
+
+assets = (file, type="public") ->
+  assetsDir = path.join __dirname, type, 'assets'
+  path.join assetsDir, file
+
